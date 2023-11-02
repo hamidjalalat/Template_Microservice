@@ -4,8 +4,8 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
-using HJMST.Application.Users;
-using HJMST.Application.Users.Commands;
+using HJMST.Application.Googoolis;
+using HJMST.Application.Googoolis.Commands;
 using Mediator;
 using HJMST.Persistence;
 using HJMST.Base.Enums;
@@ -26,7 +26,7 @@ namespace HJMST.Core
 
 			services.AddMediatR(typeof(MappingProfile).GetTypeInfo().Assembly);
 
-			services.AddValidatorsFromAssembly(assembly: typeof(CreateUserCommandValidator).Assembly);
+			services.AddValidatorsFromAssembly(assembly: typeof(CreateGoogooliCommandValidator).Assembly);
 
 			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 

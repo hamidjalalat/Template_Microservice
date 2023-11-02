@@ -1,12 +1,12 @@
 ﻿using HJMST.Persistence.ViewModels;
 
-namespace HJMST.Application.Users.CommandHandlers
+namespace HJMST.Application.Googoolis.CommandHandlers
 {
-	public class GetUsersQueryHandler : object,
+	public class GetGoogoolisQueryHandler : object,
 		Mediator.IRequestHandler
-		<Queries.GetUsersQuery, System.Collections.Generic.IEnumerable<GetUsersQueryResponseViewModel>>
+		<Queries.GetGoogoolisQuery, System.Collections.Generic.IEnumerable<GetGoogoolisQueryResponseViewModel>>
 	{
-		public GetUsersQueryHandler
+		public GetGoogoolisQueryHandler
 			(
 			AutoMapper.IMapper mapper,
             HJMST.Persistence.IQueryUnitOfWork unitOfWork) : base()
@@ -27,25 +27,25 @@ namespace HJMST.Application.Users.CommandHandlers
 		Task
 			<FluentResults.Result
 				<IEnumerable
-				<GetUsersQueryResponseViewModel>>>
-			Handle(Queries.GetUsersQuery request, System.Threading.CancellationToken cancellationToken)
+				<GetGoogoolisQueryResponseViewModel>>>
+			Handle(Queries.GetGoogoolisQuery request, System.Threading.CancellationToken cancellationToken)
 		{
 			var result =
 				new FluentResults.Result
 				<System.Collections.Generic.IEnumerable
-				<GetUsersQueryResponseViewModel>>();
+				<GetGoogoolisQueryResponseViewModel>>();
 
 			try
 			{
 			
-				var Users =
+				var Googoolis =
 					await
-					UnitOfWork.Users
+					UnitOfWork.Googoolis
 					.GetSomeAsync(count: request.Count.Value)
 					;
 			
 
-				result.WithValue(value: Users);
+				result.WithValue(value: Googoolis);
 			
 			}
 			catch (System.Exception ex)

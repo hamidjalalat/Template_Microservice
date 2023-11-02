@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using HJMST.Application.Users.Commands;
+using HJMST.Application.Googoolis.Commands;
 using HJMST.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HJMST.Application.Users
+namespace HJMST.Application.Googoolis
 {
     public class MappingProfile : Profile
     {
         public MappingProfile() : base()
         {
-            CreateMap<CreateUserCommand, User>();
-            CreateMap<User, CreateUserCommand>();
+            CreateMap<CreateGoogooliCommand, Googooli>();
+            CreateMap<Googooli, CreateGoogooliCommand>();
         }
     }
 }

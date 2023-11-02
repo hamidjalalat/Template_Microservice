@@ -1,11 +1,11 @@
 ﻿using HJMST.Persistence.ViewModels;
 
-namespace HJMST.Application.Users.CommandHandlers
+namespace HJMST.Application.Googoolis.CommandHandlers
 {
-	public class GetByUserNameQueryHandler : 
-		Mediator.IRequestHandler<Queries.GetByUserNameQuery,GetUsersQueryResponseViewModel>
+	public class GetByGoogooliNameQueryHandler : 
+		Mediator.IRequestHandler<Queries.GetByGoogooliNameQuery,GetGoogoolisQueryResponseViewModel>
 	{
-		public GetByUserNameQueryHandler
+		public GetByGoogooliNameQueryHandler
             (
 			AutoMapper.IMapper mapper,
             HJMST.Persistence.IQueryUnitOfWork unitOfWork) : base()
@@ -24,23 +24,23 @@ namespace HJMST.Application.Users.CommandHandlers
 		public
 			async
 			System.Threading.Tasks.Task
-			<FluentResults.Result<GetUsersQueryResponseViewModel>>
-			Handle(Queries.GetByUserNameQuery request, System.Threading.CancellationToken cancellationToken)
+			<FluentResults.Result<GetGoogoolisQueryResponseViewModel>>
+			Handle(Queries.GetByGoogooliNameQuery request, System.Threading.CancellationToken cancellationToken)
 		{
 			var result =
 				new FluentResults.Result
-				<GetUsersQueryResponseViewModel>();
+				<GetGoogoolisQueryResponseViewModel>();
 
 			try
 			{
 
-				var Users =
+				var Googoolis =
 					await
-					UnitOfWork.Users
-					.GetByUserNameAsync(username:request.UserName);
+					UnitOfWork.Googoolis
+					.GetByGoogooliNameAsync(googooliname:request.GoogooliName);
 					;
 
-				result.WithValue(value: Users);
+				result.WithValue(value: Googoolis);
 			
 			}
 			catch (System.Exception ex)

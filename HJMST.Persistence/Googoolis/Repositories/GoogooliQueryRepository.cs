@@ -4,23 +4,23 @@ using HJMST.Persistence.Base;
 using HJMST.Persistence.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace HJMST.Persistence.Users.Repositories
+namespace HJMST.Persistence.Googoolis.Repositories
 {
-	public class UserQueryRepository :QueryRepository<User>, IUserQueryRepository
+	public class GoogooliQueryRepository :QueryRepository<Googooli>, IGoogooliQueryRepository
 	{
-		public UserQueryRepository(QueryDatabaseContext databaseContext) : base(databaseContext)
+		public GoogooliQueryRepository(QueryDatabaseContext databaseContext) : base(databaseContext)
 		{
 		}
 
-		public async Task<IList<GetUsersQueryResponseViewModel>> GetSomeAsync(int count)
+		public async Task<IList<GetGoogoolisQueryResponseViewModel>> GetSomeAsync(int count)
 		{
 
 			var result =await DbSet
 			
-				.Select(current => new ViewModels.GetUsersQueryResponseViewModel()
+				.Select(current => new ViewModels.GetGoogoolisQueryResponseViewModel()
 				{
 					Id = current.Id,
-					UserName=current.UserName,
+					GoogooliName=current.GoogooliName,
 					FirstName=current.FirstName,
 					LastName=current.LastName,
 					EmailAddress=current.EmailAddress,
@@ -34,12 +34,12 @@ namespace HJMST.Persistence.Users.Repositories
 		}
 
 		//موقت تا زمانی که بانک اطلاعاتی راه بندازم
-        public override Task<User> GetByIdAsync(Guid id)
+        public override Task<Googooli> GetByIdAsync(Guid id)
         {
-			GetUsersQueryResponseViewModel result = new GetUsersQueryResponseViewModel()
+			GetGoogoolisQueryResponseViewModel result = new GetGoogoolisQueryResponseViewModel()
 			{
 				Id = id,
-				UserName="Hjalalat",
+				GoogooliName="Hjalalat",
 				FirstName="Hamid",
 				LastName="Jalalat",
 				EmailAddress="hjalalat@yahoo.com",
@@ -49,12 +49,12 @@ namespace HJMST.Persistence.Users.Repositories
         }
 
         //موقت تا زمانی که بانک اطلاعاتی راه بندازم
-        public async Task<GetUsersQueryResponseViewModel> GetByUserNameAsync(String username)
+        public async Task<GetGoogoolisQueryResponseViewModel> GetByGoogooliNameAsync(String googooliname)
         {
-			//GetUsersQueryResponseViewModel result = new GetUsersQueryResponseViewModel()
+			//GetGoogoolisQueryResponseViewModel result = new GetGoogoolisQueryResponseViewModel()
 			//{
 			//    Id = new Guid(),
-			//    UserName = username,
+			//    GoogooliName = Googooliname,
 			//    FirstName = "Hamid",
 			//    LastName = "Jalalat",
 			//    EmailAddress = "hjalalat@yahoo.com",
@@ -62,10 +62,10 @@ namespace HJMST.Persistence.Users.Repositories
 
 			var result =
 			await
-			DbSet.Where(C => C.UserName == username).
-			Select(current => new ViewModels.GetUsersQueryResponseViewModel()
+			DbSet.Where(C => C.GoogooliName == googooliname).
+			Select(current => new ViewModels.GetGoogoolisQueryResponseViewModel()
 			{
-				UserName = current.UserName,
+				GoogooliName = current.GoogooliName,
 				FirstName = current.FirstName,
 				LastName = current.LastName,
 				EmailAddress=current.EmailAddress,

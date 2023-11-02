@@ -1,5 +1,5 @@
 ﻿using HJMST.Persistence.Base;
-using HJMST.Persistence.Users.Repositories;
+using HJMST.Persistence.Googoolis.Repositories;
 
 namespace HJMST.Persistence
 {
@@ -9,18 +9,18 @@ namespace HJMST.Persistence
 		{
 		}
 
-		private IUserQueryRepository _users;
+		private IGoogooliQueryRepository _googoolis;
 
-		public IUserQueryRepository Users
+		public IGoogooliQueryRepository Googoolis
 		{
 			get
 			{
-				if (_users == null)
+				if (_googoolis == null)
 				{
-                    _users =new UserQueryRepository(databaseContext: DatabaseContext);
+                    _googoolis =new GoogooliQueryRepository(databaseContext: DatabaseContext);
 				}
 
-				return _users;
+				return _googoolis;
 			}
 		}
 	}

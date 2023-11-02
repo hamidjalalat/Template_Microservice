@@ -11,7 +11,7 @@ namespace HJMST.Persistence
 			Database.EnsureCreated();
 		}
 
-		public DbSet<User> Users { get; set; }
+		public DbSet<Googooli> Googoolis { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

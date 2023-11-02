@@ -2,15 +2,15 @@
 
 using AutoMapper;
 using FluentResults;
-using HJMST.Application.Users.Commands;
+using HJMST.Application.Googoolis.Commands;
 using HJMST.Domain.Models;
 using System.Resources;
 
-namespace HJMST.Application.Users.CommandHandlers
+namespace HJMST.Application.Googoolis.CommandHandlers
 {
-	public class CreateUserCommandHandler :Mediator.IRequestHandler<CreateUserCommand, Guid>
+	public class CreateGoogooliCommandHandler :Mediator.IRequestHandler<CreateGoogooliCommand, Guid>
 	{
-		public CreateUserCommandHandler(AutoMapper.IMapper mapper,Persistence.IUnitOfWork unitOfWork) : base()
+		public CreateGoogooliCommandHandler(AutoMapper.IMapper mapper,Persistence.IUnitOfWork unitOfWork) : base()
 		{
 			Mapper = mapper;
 			UnitOfWork = unitOfWork;
@@ -23,20 +23,20 @@ namespace HJMST.Application.Users.CommandHandlers
 		
 
 		public async Task<Result<Guid>>Handle(
-			Commands.CreateUserCommand request,
+			Commands.CreateGoogooliCommand request,
 			CancellationToken cancellationToken)
 		{
 			var result =new FluentResults.Result<Guid>();
 
 			try
 			{
-                var user = Mapper.Map<User>(source: request);
+                var Googooli = Mapper.Map<Googooli>(source: request);
           
-                await UnitOfWork.Users.InsertAsync(entity: user);
+                await UnitOfWork.Googoolis.InsertAsync(entity: Googooli);
 
                 await UnitOfWork.SaveAsync();
               
-                result.WithValue(value: user.Id);
+                result.WithValue(value: Googooli.Id);
                 string successInsert = string.Format("عملیات درج با موفقیت انجام شد");
 
                 result.WithSuccess (successMessage: successInsert);

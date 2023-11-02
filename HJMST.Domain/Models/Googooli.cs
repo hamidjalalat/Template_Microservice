@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace HJMST.Domain.Models
 {
-    public class User : Base.Entity
+    public class Googooli : Base.Entity
     {
-        public User() : base()
+        public Googooli() : base()
         {
         }
 
         [Required]
-        public string UserName { get; set; }
+        public string GoogooliName { get; set; }
          
 
          

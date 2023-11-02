@@ -1,10 +1,10 @@
 ﻿using HJMST.Persistence.Base;
-using HJMST.Persistence.Users.Repositories;
+using HJMST.Persistence.Googoolis.Repositories;
 
 namespace HJMST.Persistence
 {
     public interface IQueryUnitOfWork : IQueryUnitOfWorkBase
     {
-        public IUserQueryRepository Users { get; }
+        public IGoogooliQueryRepository Googoolis { get; }
     }
 }

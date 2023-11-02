@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HJMST.Application.Users.Commands
+namespace HJMST.Application.Googoolis.Commands
 {
 
-	public class CreateUserCommand : Mediator.IRequest<Guid>
+	public class CreateGoogooliCommand : Mediator.IRequest<Guid>
 	{
-		public CreateUserCommand() : base()
+		public CreateGoogooliCommand() : base()
 		{
 		}
 
         [Required]
-        public string UserName { get; set; }
+        public string GoogooliName { get; set; }
 
 
 

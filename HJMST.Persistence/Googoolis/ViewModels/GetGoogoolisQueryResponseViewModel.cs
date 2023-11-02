@@ -1,8 +1,8 @@
 ﻿namespace HJMST.Persistence.ViewModels
 {
-	public class GetUsersQueryResponseViewModel : object
+	public class GetGoogoolisQueryResponseViewModel : object
 	{
-		public GetUsersQueryResponseViewModel() : base()
+		public GetGoogoolisQueryResponseViewModel() : base()
 		{
 		}
 
@@ -10,7 +10,7 @@
 		public Guid Id { get; set; }
 
 
-        public string UserName { get; set; }
+        public string GoogooliName { get; set; }
 
 
 
