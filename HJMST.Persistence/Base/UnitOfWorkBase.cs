@@ -2,9 +2,9 @@
 
 namespace HJMST.Persistence.Base
 {
-	public abstract class UnitOfWork<T> :QueryUnitOfWork<T>, IUnitOfWork where T : DbContext
+	public abstract class UnitOfWorkBase<T> :QueryUnitOfWorkBase<T>, IUnitOfWorkBase where T : DbContext
 	{
-		public UnitOfWork(Options options) : base(options: options)
+		public UnitOfWorkBase(Options options) : base(options: options)
 		{
 		}
 

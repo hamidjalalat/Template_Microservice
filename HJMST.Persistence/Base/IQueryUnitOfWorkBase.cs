@@ -1,6 +1,6 @@
 ﻿namespace HJMST.Persistence.Base
 {
-	public interface IQueryUnitOfWork : IDisposable
+	public interface IQueryUnitOfWorkBase : IDisposable
 	{
 		bool IsDisposed { get; }
 	}

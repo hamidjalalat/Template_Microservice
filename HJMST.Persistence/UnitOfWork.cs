@@ -1,10 +1,11 @@
-﻿using HJMST.Persistence.Users.Repositories;
+﻿using HJMST.Persistence.Base;
+using HJMST.Persistence.Users.Repositories;
 
 namespace HJMST.Persistence
 {
-	public class UnitOfWork :HJMST.Persistence.Base.UnitOfWork<DatabaseContext>, IUnitOfWork
+	public class UnitOfWork :UnitOfWorkBase<DatabaseContext>, IUnitOfWork
 	{
-		public UnitOfWork(HJMST.Persistence.Base.Options options) : base(options: options)
+		public UnitOfWork(Options options) : base(options: options)
 		{
 		}
 

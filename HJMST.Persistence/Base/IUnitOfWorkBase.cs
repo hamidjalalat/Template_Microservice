@@ -1,6 +1,6 @@
 ﻿namespace HJMST.Persistence.Base
 {
-	public interface IUnitOfWork : IQueryUnitOfWork
+	public interface IUnitOfWorkBase : IQueryUnitOfWorkBase
 	{
 		Task SaveAsync();
 	}

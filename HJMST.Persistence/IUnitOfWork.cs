@@ -1,8 +1,9 @@
-﻿using HJMST.Persistence.Users.Repositories;
+﻿using HJMST.Persistence.Base;
+using HJMST.Persistence.Users.Repositories;
 
 namespace HJMST.Persistence
 {
-    public interface IUnitOfWork : HJMST.Persistence.Base.IUnitOfWork
+    public interface IUnitOfWork : IUnitOfWorkBase
     {
         public IUserRepository Users { get; }
     }

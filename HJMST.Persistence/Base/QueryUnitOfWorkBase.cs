@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HJMST.Persistence.Base
 {
-	public abstract class QueryUnitOfWork<T> :
-		object, IQueryUnitOfWork where T : DbContext
+	public abstract class QueryUnitOfWorkBase<T> :
+		object, IQueryUnitOfWorkBase where T : DbContext
 	{
-		public QueryUnitOfWork(Options options) : base()
+		public QueryUnitOfWorkBase(Options options) : base()
 		{
 			Options = options;
 		}
@@ -127,7 +127,7 @@ namespace HJMST.Persistence.Base
 			IsDisposed = true;
 		}
 
-		~QueryUnitOfWork()
+		~QueryUnitOfWorkBase()
 		{
 			Dispose(false);
 		}
