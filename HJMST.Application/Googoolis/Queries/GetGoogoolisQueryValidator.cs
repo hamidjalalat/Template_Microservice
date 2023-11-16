@@ -8,9 +8,7 @@ namespace HJMST.Application.Googoolis.Queries
 		{
 			RuleFor(current => current.Count)
 				.NotEmpty()
-				.WithMessage(errorMessage: "Count is required!")
-
-				;
+				.WithMessage(errorMessage: "Count is required!");
 		}
 	}
 }

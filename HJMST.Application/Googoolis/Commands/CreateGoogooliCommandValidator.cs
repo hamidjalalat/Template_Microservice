@@ -9,7 +9,6 @@ namespace HJMST.Application.Googoolis.Commands
 			RuleFor(current => current.GoogooliName)
 				.NotEmpty()
 				.WithMessage(errorMessage: "Requred");
-		
 		}
 	}
 }

@@ -10,11 +10,9 @@ namespace HJMST.Persistence
 			// TODO
 			Database.EnsureCreated();
 		}
-
 		
 		public DbSet<Googooli> Googoolis { get; set; }
 		
-
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);

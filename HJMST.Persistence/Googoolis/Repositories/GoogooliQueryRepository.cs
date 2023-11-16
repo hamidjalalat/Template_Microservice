@@ -33,7 +33,6 @@ namespace HJMST.Persistence.Googoolis.Repositories
 			return result;
 		}
 
-		//موقت تا زمانی که بانک اطلاعاتی راه بندازم
         public override Task<Googooli> GetByIdAsync(Guid id)
         {
 			GetGoogoolisQueryResponseViewModel result = new GetGoogoolisQueryResponseViewModel()
@@ -48,21 +47,11 @@ namespace HJMST.Persistence.Googoolis.Repositories
             return base.GetByIdAsync(id);
         }
 
-        //موقت تا زمانی که بانک اطلاعاتی راه بندازم
         public async Task<GetGoogoolisQueryResponseViewModel> GetByGoogooliNameAsync(String googooliname)
         {
-			//GetGoogoolisQueryResponseViewModel result = new GetGoogoolisQueryResponseViewModel()
-			//{
-			//    Id = new Guid(),
-			//    GoogooliName = Googooliname,
-			//    FirstName = "Hamid",
-			//    LastName = "Jalalat",
-			//    EmailAddress = "hjalalat@yahoo.com",
-			//};
+			
 
-			var result =
-			await
-			DbSet.Where(C => C.GoogooliName == googooliname).
+			var result =await DbSet.Where(C => C.GoogooliName == googooliname).
 			Select(current => new ViewModels.GetGoogoolisQueryResponseViewModel()
 			{
 				GoogooliName = current.GoogooliName,

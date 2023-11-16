@@ -83,19 +83,8 @@ namespace HJMST.Persistence.Base
 			}
 		}
 		 
-		 
-		 
-
-		 
-		/// <summary>
-		/// To detect redundant calls
-		/// </summary>
 		public bool IsDisposed { get; protected set; }
-		 
 
-		/// <summary>
-		/// Public implementation of Dispose pattern callable by consumers.
-		/// </summary>
 		public void Dispose()
 		{
 			Dispose(true);
@@ -121,8 +110,6 @@ namespace HJMST.Persistence.Base
 					_databaseContext = null;
 				}
 			}
-
-		
 
 			IsDisposed = true;
 		}

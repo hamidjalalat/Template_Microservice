@@ -89,10 +89,7 @@ namespace HJMST.Persistence.Base
 
 		public virtual async Task<IList<T>> GetAllAsync()
 		{
-			var result =
-				await
-				DbSet.ToListAsync()
-				;
+			var result =await DbSet.ToListAsync();
 
 			return result;
 		}
